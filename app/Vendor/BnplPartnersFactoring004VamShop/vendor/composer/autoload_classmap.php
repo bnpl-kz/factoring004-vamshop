@@ -12,6 +12,7 @@ return array(
     'BnplPartners\\Factoring004VamShop\\Exception\\OtpCheckerNotFoundException' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Exception/OtpCheckerNotFoundException.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\AbstractOrderStatusHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/AbstractOrderStatusHandler.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\AbstractOrderStatusRefundHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/AbstractOrderStatusRefundHandler.php',
+    'BnplPartners\\Factoring004VamShop\\Handler\\CancelHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/CancelHandler.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\DeliveryHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/DeliveryHandler.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\FullRefundHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/FullRefundHandler.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerFactory' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerFactory.php',

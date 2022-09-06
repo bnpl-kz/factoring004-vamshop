@@ -111,6 +111,7 @@ class ComposerStaticInita895916bd2c3d7ed1b5799d6c43a5dfa
         'BnplPartners\\Factoring004VamShop\\Exception\\OtpCheckerNotFoundException' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Exception/OtpCheckerNotFoundException.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\AbstractOrderStatusHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/AbstractOrderStatusHandler.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\AbstractOrderStatusRefundHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/AbstractOrderStatusRefundHandler.php',
+        'BnplPartners\\Factoring004VamShop\\Handler\\CancelHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/CancelHandler.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\DeliveryHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/DeliveryHandler.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\FullRefundHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/FullRefundHandler.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerFactory' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerFactory.php',
