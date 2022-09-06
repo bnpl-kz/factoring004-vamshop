@@ -8,6 +8,7 @@ class OrderStatusHandlerFactory
 {
     const HANDLERS = [
         DeliveryHandler::class,
+        FullRefundHandler::class,
     ];
 
     /**
