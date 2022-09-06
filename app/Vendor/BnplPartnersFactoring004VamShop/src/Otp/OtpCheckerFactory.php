@@ -19,6 +19,10 @@ class OtpCheckerFactory
             return new DeliveryOtpChecker();
         }
 
+        if ($action === 'full-refund' || $action === 'partial-refund') {
+            return new RefundOtpChecker();
+        }
+
         throw new OtpCheckerNotFoundException("Otp checker for action {$action} not found");
     }
 }
