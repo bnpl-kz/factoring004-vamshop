@@ -19,12 +19,6 @@ class Factoring004OtpController extends AppController
     use SessionTrait;
 
     const OTP_CHECK_PATH = '/factoring004-otp/check/';
-    const FORWARD_PATH = '/orders/admin_new_comment/';
-
-    /**
-     * @var string[]
-     */
-    public $uses = ['Order'];
 
     /**
      * @var \Psr\Log\LoggerInterface
@@ -72,13 +66,13 @@ class Factoring004OtpController extends AppController
             return;
         }
 
-        $orderId = $data['Order']['id'];
-        $amount = $this->Order->field('total', ['id' => $orderId]);
+        $orderId = $data['data']['Order']['id'];
+        $amount = $data['amount'];
 
         try {
             OtpCheckerFactory::create($type)->check($orderId, $amount, $otp);
 
-            $data['__otp_checked'] = true;
+            $data['data']['__otp_checked'] = true;
             $this->forwardToController($data);
             exit;
         } catch (ErrorResponseException $e) {
@@ -106,8 +100,8 @@ class Factoring004OtpController extends AppController
      */
     private function forwardToController(array $data)
     {
-        $request = new Request('POST', static::FORWARD_PATH, false);
-        $request->data = $data;
+        $request = new Request('POST', $data['path'], false);
+        $request->data = $data['data'];
 
         $dispatcher = new Dispatcher();
         $dispatcher->dispatch($request, $this->response);
