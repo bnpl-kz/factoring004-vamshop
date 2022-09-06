@@ -2,7 +2,7 @@
 
 namespace BnplPartners\Factoring004VamShop\Handler;
 
-use InvalidArgumentException;
+use BnplPartners\Factoring004VamShop\Exception\OrderStatusHandlerNotFoundException;
 
 class OrderStatusHandlerFactory
 {
@@ -15,7 +15,7 @@ class OrderStatusHandlerFactory
      *
      * @return \BnplPartners\Factoring004VamShop\Handler\OrderStatusHandlerInterface
      *
-     * @throws \InvalidArgumentException
+     * @throws \BnplPartners\Factoring004VamShop\Exception\OrderStatusHandlerNotFoundException
      */
     public static function create($orderStatusId)
     {
@@ -28,6 +28,6 @@ class OrderStatusHandlerFactory
             }
         }
 
-        throw new InvalidArgumentException("Handler for status {$orderStatusId} not found");
+        throw new OrderStatusHandlerNotFoundException("Handler for status {$orderStatusId} not found");
     }
 }

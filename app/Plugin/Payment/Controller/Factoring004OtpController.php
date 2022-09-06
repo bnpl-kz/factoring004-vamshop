@@ -1,7 +1,6 @@
 <?php
 
 use BnplPartners\Factoring004\Exception\ErrorResponseException;
-use BnplPartners\Factoring004\Exception\PackageException;
 use BnplPartners\Factoring004VamShop\Helper\LoggerFactory;
 use BnplPartners\Factoring004VamShop\Helper\SessionTrait;
 use BnplPartners\Factoring004VamShop\Otp\OtpCheckerFactory;
@@ -90,7 +89,7 @@ class Factoring004OtpController extends AppController
 
             $this->Session->setFlash($message);
             $this->redirect(static::OTP_CHECK_PATH . $type);
-        } catch (PackageException $e) {
+        } catch (Exception $e) {
             $this->logger->error($e);
 
             $this->Session->setFlash(

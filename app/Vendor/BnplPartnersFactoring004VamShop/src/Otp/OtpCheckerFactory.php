@@ -2,7 +2,7 @@
 
 namespace BnplPartners\Factoring004VamShop\Otp;
 
-use InvalidArgumentException;
+use BnplPartners\Factoring004VamShop\Exception\OtpCheckerNotFoundException;
 
 class OtpCheckerFactory
 {
@@ -11,7 +11,7 @@ class OtpCheckerFactory
      *
      * @return \BnplPartners\Factoring004VamShop\Otp\OtpCheckerInterface
      *
-     * @throws \InvalidArgumentException
+     * @throws \BnplPartners\Factoring004VamShop\Exception\OtpCheckerNotFoundException
      */
     public static function create($action)
     {
@@ -19,6 +19,6 @@ class OtpCheckerFactory
             return new DeliveryOtpChecker();
         }
 
-        throw new InvalidArgumentException("Otp checker for action {$action} not found");
+        throw new OtpCheckerNotFoundException("Otp checker for action {$action} not found");
     }
 }

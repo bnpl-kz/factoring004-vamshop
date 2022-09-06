@@ -2,6 +2,7 @@
 
 use BnplPartners\Factoring004\Exception\ErrorResponseException;
 use BnplPartners\Factoring004\Exception\PackageException;
+use BnplPartners\Factoring004VamShop\Exception\OrderStatusHandlerNotFoundException;
 use BnplPartners\Factoring004VamShop\Handler\OrderStatusHandlerFactory;
 use BnplPartners\Factoring004VamShop\Helper\LoggerFactory;
 use BnplPartners\Factoring004VamShop\Helper\SessionTrait;
@@ -62,7 +63,7 @@ class Factoring004OrdersController extends OrdersController
             }
 
             parent::admin_new_comment($user);
-        } catch (InvalidArgumentException $e) {
+        } catch (OrderStatusHandlerNotFoundException $e) {
             parent::admin_new_comment($user);
         } catch (ErrorResponseException $e) {
             $response = $e->getErrorResponse();
