@@ -28,6 +28,13 @@ class Factoring004OrdersController extends OrdersController
         $this->logger = LoggerFactory::create()->createLogger();
     }
 
+    public function admin_order_statuses()
+    {
+        $this->viewPath = 'Factoring004';
+
+        parent::admin_order_statuses();
+    }
+
     public function admin_new_comment($user = null)
     {
         $order = $this->Order->read([], $this->data['Order']['id']);
