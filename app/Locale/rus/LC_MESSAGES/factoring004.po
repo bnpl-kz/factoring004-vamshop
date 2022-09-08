@@ -28,3 +28,62 @@ msgstr "OTP"
 msgid "Check"
 msgstr "Проверить"
 
+#: /plugins/payment/views/factoring004/settings.ctp
+msgid "Factoring004"
+msgstr "Рассрочка 0-0-4"
+
+msgid "API Host"
+msgstr "API Host"
+
+msgid "OAuth Token bnpl-partners"
+msgstr "OAuth Token bnpl-partners"
+
+msgid "OAuth Token AccountingService"
+msgstr "OAuth Token AccountingService"
+
+msgid "Partner Name"
+msgstr "Partner Name"
+
+msgid "Partner Code"
+msgstr "Partner Code"
+
+msgid "Point Code"
+msgstr "Point Code"
+
+msgid "Partner Email"
+msgstr "Partner Email"
+
+msgid "Partner Website"
+msgstr "Partner Website"
+
+msgid "Delivery methods"
+msgstr "Способы доставки"
+
+msgid "Status declined"
+msgstr "Статус неуспешных заказов"
+
+msgid "Status delivery"
+msgstr "Статус доставленных заказов"
+
+msgid "Status return"
+msgstr "Статус возвращенных заказов"
+
+msgid "Status cancel"
+msgstr "Статус отмененных заказов"
+
+msgid "Show offer"
+msgstr "Просмотреть"
+
+msgid "Delete offer"
+msgstr "Удалить"
+
+msgid "Upload offer"
+msgstr "Загрузить"
+
+msgid "File offer"
+msgstr "Файл оферты"
+
+msgid "Help offer"
+msgstr "Загрузите файл оферты, если вам необходимо его отобразить клиенту"
+
+

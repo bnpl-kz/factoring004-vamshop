@@ -30,7 +30,7 @@ class Factoring004Controller extends PaymentAppController
     /**
      * @var string[]
      */
-    public $uses = ['PaymentMethod', 'Order'];
+    public $uses = ['PaymentMethod', 'Order', 'OrderStatusDescription', 'ShippingMethod'];
 
     /**
      * @var string
@@ -60,6 +60,8 @@ class Factoring004Controller extends PaymentAppController
     public function settings()
     {
         $this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
+        $this->set('shippings', $this->getShippingMethods());
+        $this->set('statuses', $this->getOrderStatuses());
     }
 
     /**
@@ -67,7 +69,76 @@ class Factoring004Controller extends PaymentAppController
      */
     public function install()
     {
+        $new_module = array();
+        $new_module['PaymentMethod']['active'] = '1';
+        $new_module['PaymentMethod']['default'] = '0';
+        $new_module['PaymentMethod']['name'] = __d('factoring004', $this->module_name);
+        $new_module['PaymentMethod']['description'] = 'Купи сейчас, плати потом! Быстрое и удобное оформление рассрочки на 4 месяца без первоначальной оплаты. Моментальное подтверждение, без комиссий и процентов. Для заказов суммой от 6000 до 200000 тг.';
+        $new_module['PaymentMethod']['icon'] = $this->icon;
+        $new_module['PaymentMethod']['order'] = 0;
+        $new_module['PaymentMethod']['alias'] = Inflector::underscore($this->module_name);
+        $new_module['PaymentMethod']['order_status_id'] = $this->getOrderStatusId('Processing');
 
+        $new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][0]['key'] = 'factoring004_api_host';
+        $new_module['PaymentMethodValue'][0]['value'] = '';
+
+        $new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][1]['key'] = 'factoring004_token_bp';
+        $new_module['PaymentMethodValue'][1]['value'] = '';
+
+        $new_module['PaymentMethodValue'][2]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][2]['key'] = 'factoring004_token_as';
+        $new_module['PaymentMethodValue'][2]['value'] = '';
+
+        $new_module['PaymentMethodValue'][3]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][3]['key'] = 'factoring004_partner_name';
+        $new_module['PaymentMethodValue'][3]['value'] = '';
+
+        $new_module['PaymentMethodValue'][4]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][4]['key'] = 'factoring004_partner_code';
+        $new_module['PaymentMethodValue'][4]['value'] = '';
+
+        $new_module['PaymentMethodValue'][5]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][5]['key'] = 'factoring004_point_code';
+        $new_module['PaymentMethodValue'][5]['value'] = '';
+
+        $new_module['PaymentMethodValue'][6]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][6]['key'] = 'factoring004_partner_email';
+        $new_module['PaymentMethodValue'][6]['value'] = '';
+
+        $new_module['PaymentMethodValue'][7]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][7]['key'] = 'factoring004_partner_website';
+        $new_module['PaymentMethodValue'][7]['value'] = '';
+
+        $new_module['PaymentMethodValue'][8]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][8]['key'] = 'factoring004_delivery_methods';
+        $new_module['PaymentMethodValue'][8]['value'] = '';
+
+        $new_module['PaymentMethodValue'][9]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][9]['key'] = 'factoring004_decline_status';
+        $new_module['PaymentMethodValue'][9]['value'] = '';
+
+        $new_module['PaymentMethodValue'][10]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][10]['key'] = 'factoring004_delivery_status';
+        $new_module['PaymentMethodValue'][10]['value'] = $this->getOrderStatusId('Delivered');
+
+        $new_module['PaymentMethodValue'][11]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][11]['key'] = 'factoring004_return_status';
+        $new_module['PaymentMethodValue'][11]['value'] = '';
+
+        $new_module['PaymentMethodValue'][12]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][12]['key'] = 'factoring004_cancel_status';
+        $new_module['PaymentMethodValue'][12]['value'] = '';
+
+        $new_module['PaymentMethodValue'][13]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][13]['key'] = 'factoring004_offer_file';
+        $new_module['PaymentMethodValue'][13]['value'] = '';
+
+        $this->PaymentMethod->saveAll($new_module);
+
+        $this->Session->setFlash(__('Module Installed'));
+        $this->redirect('/payment_methods/admin/');
     }
 
     /**
@@ -75,7 +146,12 @@ class Factoring004Controller extends PaymentAppController
      */
     public function uninstall()
     {
+        $module_id = $this->PaymentMethod->findByAlias(Inflector::underscore($this->module_name));
 
+        $this->PaymentMethod->delete($module_id['PaymentMethod']['id'], true);
+
+        $this->Session->setFlash(__('Module Uninstalled'));
+        $this->redirect('/payment_methods/admin/');
     }
 
     /**
@@ -195,5 +271,30 @@ class Factoring004Controller extends PaymentAppController
         $this->response->statusCode($status);
         $this->response->type('json');
         $this->response->body($json);
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    private function getOrderStatusId($name)
+    {
+        return $this->OrderStatusDescription->field('order_status_id', ['name'=>$name]);
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getShippingMethods()
+    {
+        return $this->ShippingMethod->find('list', ['conditions' => ['active' => '1']]);
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getOrderStatuses()
+    {
+        return $this->OrderStatusDescription->find('list',['conditions' => ['language_id' => $this->Session->read('Customer.language_id')]]);
     }
 }
