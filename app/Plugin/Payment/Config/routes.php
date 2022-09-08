@@ -14,3 +14,13 @@ Router::connect(
     ['plugin' => 'Payment', 'controller' => 'factoring004Otp', 'action' => 'check', '[method]' => 'POST'],
     ['pass' => ['type'], 'type' => 'delivery|full-refund|partial-refund']
 );
+
+Router::connect(
+    '/factoring004-upload-file',
+    ['plugin' => 'Payment', 'controller' => 'Factoring004FileHandler', 'action' => 'fileUpload',]
+);
+
+Router::connect(
+    '/factoring004-remove-file',
+    ['plugin' => 'Payment', 'controller' => 'Factoring004FileHandler', 'action' => 'fileRemove',]
+);
