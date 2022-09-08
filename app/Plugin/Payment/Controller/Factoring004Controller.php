@@ -8,6 +8,7 @@
 
 use BnplPartners\Factoring004\Exception\InvalidSignatureException;
 use BnplPartners\Factoring004\Signature\PostLinkSignatureValidator;
+use BnplPartners\Factoring004VamShop\Handler\PreAppHandler;
 use BnplPartners\Factoring004VamShop\Helper\Config;
 use BnplPartners\Factoring004VamShop\Helper\LoggerFactory;
 
@@ -159,7 +160,17 @@ class Factoring004Controller extends PaymentAppController
      */
     public function before_process()
     {
-        return null;
+        try {
+            $preApp = new PreAppHandler();
+            $this->redirect($preApp->preApp());
+        } catch (Exception $e) {
+            $this->redirect(Router::url('error'));
+        }
+    }
+
+    public function error()
+    {
+        $this->layout = '';
     }
 
     /**

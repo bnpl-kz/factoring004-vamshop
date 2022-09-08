@@ -117,6 +117,7 @@ class ComposerStaticInita895916bd2c3d7ed1b5799d6c43a5dfa
         'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerFactory' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerFactory.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerInterface' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerInterface.php',
         'BnplPartners\\Factoring004VamShop\\Handler\\PartialRefundHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/PartialRefundHandler.php',
+        'BnplPartners\\Factoring004VamShop\\Handler\\PreAppHandler' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/PreAppHandler.php',
         'BnplPartners\\Factoring004VamShop\\Helper\\ApiCreationTrait' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/ApiCreationTrait.php',
         'BnplPartners\\Factoring004VamShop\\Helper\\Config' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/Config.php',
         'BnplPartners\\Factoring004VamShop\\Helper\\Logger' => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/Logger.php',

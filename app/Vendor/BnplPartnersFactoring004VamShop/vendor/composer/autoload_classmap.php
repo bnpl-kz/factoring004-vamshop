@@ -18,6 +18,7 @@ return array(
     'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerFactory' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerFactory.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\OrderStatusHandlerInterface' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/OrderStatusHandlerInterface.php',
     'BnplPartners\\Factoring004VamShop\\Handler\\PartialRefundHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/PartialRefundHandler.php',
+    'BnplPartners\\Factoring004VamShop\\Handler\\PreAppHandler' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Handler/PreAppHandler.php',
     'BnplPartners\\Factoring004VamShop\\Helper\\ApiCreationTrait' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/ApiCreationTrait.php',
     'BnplPartners\\Factoring004VamShop\\Helper\\Config' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/Config.php',
     'BnplPartners\\Factoring004VamShop\\Helper\\Logger' => $baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src/Helper/Logger.php',
