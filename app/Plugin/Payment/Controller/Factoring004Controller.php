@@ -77,7 +77,7 @@ class Factoring004Controller extends PaymentAppController
         $new_module['PaymentMethod']['description'] = 'Купи сейчас, плати потом! Быстрое и удобное оформление рассрочки на 4 месяца без первоначальной оплаты. Моментальное подтверждение, без комиссий и процентов. Для заказов суммой от 6000 до 200000 тг.';
         $new_module['PaymentMethod']['icon'] = $this->icon;
         $new_module['PaymentMethod']['order'] = 0;
-        $new_module['PaymentMethod']['alias'] = Inflector::underscore($this->module_name);
+        $new_module['PaymentMethod']['alias'] = $this->module_name;
         $new_module['PaymentMethod']['order_status_id'] = $this->getOrderStatusId('Processing');
 
         $new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
@@ -137,8 +137,8 @@ class Factoring004Controller extends PaymentAppController
         $new_module['PaymentMethodValue'][13]['value'] = '';
 
         $this->PaymentMethod->saveAll($new_module);
-
         $this->Session->setFlash(__('Module Installed'));
+        $this->appendDataCheckoutFile();
         $this->redirect('/payment_methods/admin/');
     }
 
@@ -147,7 +147,7 @@ class Factoring004Controller extends PaymentAppController
      */
     public function uninstall()
     {
-        $module_id = $this->PaymentMethod->findByAlias(Inflector::underscore($this->module_name));
+        $module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
         $this->PaymentMethod->delete($module_id['PaymentMethod']['id'], true);
 
@@ -307,5 +307,17 @@ class Factoring004Controller extends PaymentAppController
     private function getOrderStatuses()
     {
         return $this->OrderStatusDescription->find('list',['conditions' => ['language_id' => $this->Session->read('Customer.language_id')]]);
+    }
+
+    private function appendDataCheckoutFile()
+    {
+        $file = file_get_contents(ROOT . '/app/Catalog/function.checkout.php');
+
+        if (!strripos($file, '<?php require_once "factoring004-checkout.php"; ?>')) {
+            file_put_contents(
+                ROOT . '/app/Catalog/function.checkout.php', '<?php require_once "factoring004-checkout.php"; ?>',
+                FILE_APPEND | LOCK_EX
+            );
+        }
     }
 }

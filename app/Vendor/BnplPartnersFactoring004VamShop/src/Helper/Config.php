@@ -27,6 +27,14 @@ class Config
     }
 
     /**
+     * @return array|null
+     */
+    public static function getPayment()
+    {
+        return (new PaymentMethod())->find('first', ['conditions' => ['alias' => 'Factoring004']]);
+    }
+
+    /**
      * @return array<string, mixed>
      */
     public static function all()
