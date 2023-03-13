@@ -31,7 +31,7 @@ class Factoring004Controller extends PaymentAppController
     /**
      * @var string[]
      */
-    public $uses = ['PaymentMethod', 'Order', 'OrderStatusDescription', 'ShippingMethod'];
+    public $uses = ['PaymentMethod'];
 
     /**
      * @var string
@@ -61,8 +61,6 @@ class Factoring004Controller extends PaymentAppController
     public function settings()
     {
         $this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
-        $this->set('shippings', $this->getShippingMethods());
-        $this->set('statuses', $this->getOrderStatuses());
     }
 
     /**
@@ -111,30 +109,6 @@ class Factoring004Controller extends PaymentAppController
         $new_module['PaymentMethodValue'][7]['payment_method_id'] = $this->PaymentMethod->id;
         $new_module['PaymentMethodValue'][7]['key'] = 'factoring004_partner_website';
         $new_module['PaymentMethodValue'][7]['value'] = '';
-
-        $new_module['PaymentMethodValue'][8]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][8]['key'] = 'factoring004_delivery_methods';
-        $new_module['PaymentMethodValue'][8]['value'] = '';
-
-        $new_module['PaymentMethodValue'][9]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][9]['key'] = 'factoring004_decline_status';
-        $new_module['PaymentMethodValue'][9]['value'] = '';
-
-        $new_module['PaymentMethodValue'][10]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][10]['key'] = 'factoring004_delivery_status';
-        $new_module['PaymentMethodValue'][10]['value'] = $this->getOrderStatusId('Delivered');
-
-        $new_module['PaymentMethodValue'][11]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][11]['key'] = 'factoring004_return_status';
-        $new_module['PaymentMethodValue'][11]['value'] = '';
-
-        $new_module['PaymentMethodValue'][12]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][12]['key'] = 'factoring004_cancel_status';
-        $new_module['PaymentMethodValue'][12]['value'] = '';
-
-        $new_module['PaymentMethodValue'][13]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][13]['key'] = 'factoring004_offer_file';
-        $new_module['PaymentMethodValue'][13]['value'] = '';
 
         $this->PaymentMethod->saveAll($new_module);
         $this->Session->setFlash(__('Module Installed'));
@@ -291,22 +265,6 @@ class Factoring004Controller extends PaymentAppController
     private function getOrderStatusId($name)
     {
         return $this->OrderStatusDescription->field('order_status_id', ['name'=>$name]);
-    }
-
-    /**
-     * @return mixed
-     */
-    private function getShippingMethods()
-    {
-        return $this->ShippingMethod->find('list', ['conditions' => ['active' => '1']]);
-    }
-
-    /**
-     * @return mixed
-     */
-    private function getOrderStatuses()
-    {
-        return $this->OrderStatusDescription->find('list',['conditions' => ['language_id' => $this->Session->read('Customer.language_id')]]);
     }
 
     private function appendDataCheckoutFile()
