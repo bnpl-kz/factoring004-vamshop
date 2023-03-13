@@ -1,32 +1,5 @@
-msgid "The order amount was increased"
-msgstr "Сумма заказа была изменена в большую сторону"
-
-msgid "Please full refund the order and create new"
-msgstr "Пожалуйста сделайте полный возврат заказа и создайте новый заказ"
-
-msgid "At least one product should remain into the order"
-msgstr "Как минимум один товар должен остаться в заказе"
-
-msgid "You are trying to add new products into the order"
-msgstr "Вы пытаетесь добавить новые товары в заказ"
-
-msgid "Check OTP"
-msgstr "Проверить OTP"
-
-msgid "Invalid OTP code"
-msgstr "OTP код неверный"
-
-msgid "Session expired. Please back to previous page and update order status again"
-msgstr "Сеанс истек. Пожалуйста вернитесь на предыдущую страницу и обновите статус заказа еще раз"
-
 msgid "An error occurred"
 msgstr "Произошла ошибка"
-
-msgid "OTP"
-msgstr "OTP"
-
-msgid "Check"
-msgstr "Проверить"
 
 #: /plugins/payment/views/factoring004/settings.ctp
 msgid "Factoring004"
@@ -56,34 +29,5 @@ msgstr "Partner Email"
 msgid "Partner Website"
 msgstr "Partner Website"
 
-msgid "Delivery methods"
-msgstr "Способы доставки"
-
-msgid "Status declined"
-msgstr "Статус неуспешных заказов"
-
-msgid "Status delivery"
-msgstr "Статус доставленных заказов"
-
-msgid "Status return"
-msgstr "Статус возвращенных заказов"
-
-msgid "Status cancel"
-msgstr "Статус отмененных заказов"
-
-msgid "Show offer"
-msgstr "Просмотреть"
-
-msgid "Delete offer"
-msgstr "Удалить"
-
-msgid "Upload offer"
-msgstr "Загрузить"
-
-msgid "File offer"
-msgstr "Файл оферты"
-
-msgid "Help offer"
-msgstr "Загрузите файл оферты, если вам необходимо его отобразить клиенту"
 
 
