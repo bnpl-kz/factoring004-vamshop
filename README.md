@@ -3,11 +3,11 @@
 ## Установка
 
 * Создайте резервную копию вашего магазина и базы данных
-* Загрузите [vamshop2-factoring004.zip](https://github.com//bnpl-kz/factoring004-vamshop/archive/refs/heads/light-plugin.zip)
-* Разархивируйте архив, затем заархивируйте папку **app**
-* Зайдите в панель администратора VamShop2 (www.yoursite.com/admin/)
-* Пройдите _Настройки → Способы оплаты_, нажмите **Добавить модуль**
-* Выберите _архив **app** → нажмите **Продолжить**, далее в списке найдите _Рассрочка 0-0-4_ модуль и нажмите **Установить**.
+* Загрузите [vamshop2-factoring004.zip](https://github.com//bnpl-kz/factoring004-vamshop/archive/refs/heads/main.zip)
+* Подключитесь к вашему хостингу по FTP
+* Разархивируйте архив и скопируйте папку **app** в папку **app** на вашем хостинге (или перетаскиванием папки)
+* Зайдите в административную панель вашего сайта (www.yoursite.com/admin/)
+* Пройдите в Настройки -> Способ оплаты, далее в списке найдите _Рассрочка 0-0-4_ или _Factoring 0-0-4_ модуль и нажмите **Установить**.
 
 ![Activate](https://github.com/bnpl-partners/factoring004-vamshop/raw/light-plugin/app/doc/install.png)
 
