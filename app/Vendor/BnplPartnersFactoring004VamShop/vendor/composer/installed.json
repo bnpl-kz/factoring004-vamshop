@@ -2,33 +2,35 @@
     "packages": [
         {
             "name": "bnpl-partners/factoring004",
-            "version": "dev-legacy-56",
-            "version_normalized": "dev-legacy-56",
+            "version": "2.0.0",
+            "version_normalized": "2.0.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bnpl-partners/factoring004.git",
-                "reference": "37fde7e076278c5017413c28f3c15dbc4cbd8c80"
+                "url": "https://github.com/bnpl-kz/factoring004.git",
+                "reference": "c8735aefa55a0be9361d42cc37dae31a4c302868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bnpl-partners/factoring004/zipball/37fde7e076278c5017413c28f3c15dbc4cbd8c80",
-                "reference": "37fde7e076278c5017413c28f3c15dbc4cbd8c80",
+                "url": "https://api.github.com/repos/bnpl-kz/factoring004/zipball/c8735aefa55a0be9361d42cc37dae31a4c302868",
+                "reference": "c8735aefa55a0be9361d42cc37dae31a4c302868",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
                 "guzzlehttp/guzzle": ">=6.0",
-                "myclabs/php-enum": "^1.6",
-                "php": ">=5.6",
-                "psr/log": "^1.1",
-                "psr/simple-cache": "^1.0"
+                "myclabs/php-enum": ">=1.6",
+                "php": ">=5.6 || <7.4",
+                "psr/log": ">=1.0",
+                "psr/simple-cache": ">=1.0"
             },
-            "time": "2022-05-31T07:57:06+00:00",
+            "require-dev": {
+                "phpunit/phpunit": ">=5.7"
+            },
+            "time": "2023-04-04T05:44:21+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "BnplPartners\\Factoring004\\": "src/"
+                    "BnplPartners\\Factoring004\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -37,8 +39,8 @@
             ],
             "description": "Buy now pay later API SDK",
             "support": {
-                "issues": "https://github.com/bnpl-partners/factoring004/issues",
-                "source": "https://github.com/bnpl-partners/factoring004/tree/legacy-56"
+                "issues": "https://github.com/bnpl-kz/factoring004/issues",
+                "source": "https://github.com/bnpl-kz/factoring004/tree/2.0.0"
             },
             "install-path": "../bnpl-partners/factoring004"
         },
@@ -1020,6 +1022,6 @@
             "install-path": "../symfony/polyfill-php72"
         }
     ],
-    "dev": false,
+    "dev": true,
     "dev-package-names": []
 }
