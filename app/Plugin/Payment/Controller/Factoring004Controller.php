@@ -85,11 +85,11 @@ class Factoring004Controller extends PaymentAppController
         $new_module['PaymentMethodValue'][0]['value'] = '';
 
         $new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][1]['key'] = 'factoring004_token_bp';
+        $new_module['PaymentMethodValue'][1]['key'] = 'factoring004_login';
         $new_module['PaymentMethodValue'][1]['value'] = '';
 
         $new_module['PaymentMethodValue'][2]['payment_method_id'] = $this->PaymentMethod->id;
-        $new_module['PaymentMethodValue'][2]['key'] = 'factoring004_token_as';
+        $new_module['PaymentMethodValue'][2]['key'] = 'factoring004_password';
         $new_module['PaymentMethodValue'][2]['value'] = '';
 
         $new_module['PaymentMethodValue'][3]['payment_method_id'] = $this->PaymentMethod->id;
