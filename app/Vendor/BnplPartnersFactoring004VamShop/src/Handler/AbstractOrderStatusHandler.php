@@ -81,12 +81,4 @@ abstract class AbstractOrderStatusHandler implements OrderStatusHandlerInterface
 
         return $ids ? array_map('trim', explode(',', $ids)) : [];
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getOAuthToken()
-    {
-        return Config::get('factoring004_token_as');
-    }
 }

@@ -13,17 +13,18 @@ trait ApiCreationTrait
      */
     protected function createApi()
     {
+        $oauthToken = AuthManager::init(
+            Config::get('factoring004_api_host'),
+            Config::get('factoring004_login'),
+            Config::get('factoring004_password')
+        );
+
         return Api::create(
             Config::get('factoring004_api_host'),
-            new BearerTokenAuth($this->getOAuthToken()),
+            new BearerTokenAuth($oauthToken->getToken()),
             $this->getTransport()
         );
     }
-
-    /**
-     * @return string
-     */
-    abstract protected function getOAuthToken();
 
     /**
      * @return \BnplPartners\Factoring004\Transport\TransportInterface|null
