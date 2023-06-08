@@ -47,6 +47,11 @@ class ComposerStaticInita895916bd2c3d7ed1b5799d6c43a5dfa
             'BnplPartners\\Factoring004\\' => 26,
             'BnplPartners\\Factoring004VamShop\\' => 33,
         ),
+        'A' => 
+        array (
+            'AdinanCenci\\FileCache\\Exceptions\\' => 33,
+            'AdinanCenci\\FileCache\\' => 22,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -101,6 +106,14 @@ class ComposerStaticInita895916bd2c3d7ed1b5799d6c43a5dfa
         'BnplPartners\\Factoring004VamShop\\' => 
         array (
             0 => __DIR__ . '/../../../../..' . '/app/Vendor/BnplPartnersFactoring004VamShop/src',
+        ),
+        'AdinanCenci\\FileCache\\Exceptions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adinan-cenci/file-cache/src/Exceptions',
+        ),
+        'AdinanCenci\\FileCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adinan-cenci/file-cache/src',
         ),
     );
 
