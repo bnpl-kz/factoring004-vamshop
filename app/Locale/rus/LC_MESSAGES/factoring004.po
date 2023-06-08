@@ -29,5 +29,13 @@ msgstr "Partner Email"
 msgid "Partner Website"
 msgstr "Partner Website"
 
+msgid "Client route"
+msgstr "Вид интерфейса клиентского пути"
+
+msgid "Redirect"
+msgstr "Редирект"
+
+msgid "Modal"
+msgstr "Модальное окно"
 
 

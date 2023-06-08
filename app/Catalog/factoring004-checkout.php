@@ -31,5 +31,5 @@ $paymentId = $payment['PaymentMethod']['id'];
             });
         }
     })
-</script>;
+</script>
 

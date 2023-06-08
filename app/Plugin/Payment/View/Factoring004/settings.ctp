@@ -62,6 +62,13 @@ echo $this->Form->input('factoring004.factoring004_partner_website', array(
     'value' => $data['PaymentMethodValue'][7]['value']
 ));
 
+echo $this->Form->input('factoring004.factoring004_client_route', array(
+    'label' => __d('factoring004','Client route'),
+    'type' => 'select',
+    'value' => $data['PaymentMethodValue'][8]['value'],
+    'options' => ['redirect' => __d('factoring004','Redirect'), 'modal' => __d('factoring004','Modal')],
+));
+
 $html .= '</div>';
 
 echo $html;
