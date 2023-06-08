@@ -3,7 +3,7 @@
 ## Установка
 
 * Создайте резервную копию вашего магазина и базы данных
-* Загрузите [vamshop2-factoring004.zip](https://github.com//bnpl-kz/factoring004-vamshop/archive/refs/heads/main.zip)
+* Загрузите [vamshop2-factoring004.zip](https://github.com//bnpl-kz/factoring004-vamshop/archive/refs/heads/light-plugin.zip)
 * Подключитесь к вашему хостингу по FTP
 * Разархивируйте архив и скопируйте папку **app** в папку **app** на вашем хостинге (или перетаскиванием папки)
 * Зайдите в административную панель вашего сайта (www.yoursite.com/admin/)
@@ -29,7 +29,7 @@
 Разработанно и протестированно с:
 
 * VamShop 2
-* PHP 5.x/7.x
+* PHP 5.6
 
 ## Тестирование
 
