@@ -3,6 +3,7 @@
   "require": {
     "php": ">=5.6",
     "ext-json": "*",
+    "adinan-cenci/file-cache": "^2.0",
     "bnpl-partners/factoring004": "^2.0"
   },
   "autoload": {
