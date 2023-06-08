@@ -132,6 +132,13 @@ echo $this->Form->input('factoring004.factoring004_cancel_status', array(
     'options' => array_merge(['-'],$statuses)
 ));
 
+echo $this->Form->input('factoring004.factoring004_client_route', array(
+    'label' => __d('factoring004','Client route'),
+    'type' => 'select',
+    'value' => $data['PaymentMethodValue'][14]['value'],
+    'options' => ['redirect' => __d('factoring004','Redirect'), 'modal' => __d('factoring004','Modal')],
+));
+
 echo '<script>
     $(document).ready(function () {
         let ids;

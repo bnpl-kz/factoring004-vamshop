@@ -86,4 +86,13 @@ msgstr "Файл оферты"
 msgid "Help offer"
 msgstr "Загрузите файл оферты, если вам необходимо его отобразить клиенту"
 
+msgid "Client route"
+msgstr "Вид интерфейса клиентского пути"
+
+msgid "Redirect"
+msgstr "Редирект"
+
+msgid "Modal"
+msgstr "Модальное окно"
+
 

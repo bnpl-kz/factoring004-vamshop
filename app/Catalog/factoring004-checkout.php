@@ -70,5 +70,5 @@ $paymentOfferFile = $payment['PaymentMethodValue'][13]['value'];
         }
 
     })
-</script>;
+</script>
 

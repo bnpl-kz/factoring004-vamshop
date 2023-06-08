@@ -136,6 +136,10 @@ class Factoring004Controller extends PaymentAppController
         $new_module['PaymentMethodValue'][13]['key'] = 'factoring004_offer_file';
         $new_module['PaymentMethodValue'][13]['value'] = '';
 
+        $new_module['PaymentMethodValue'][14]['payment_method_id'] = $this->PaymentMethod->id;
+        $new_module['PaymentMethodValue'][14]['key'] = 'factoring004_client_route';
+        $new_module['PaymentMethodValue'][14]['value'] = '';
+
         $this->PaymentMethod->saveAll($new_module);
         $this->Session->setFlash(__('Module Installed'));
         $this->appendDataCheckoutFile();
@@ -160,9 +164,43 @@ class Factoring004Controller extends PaymentAppController
      */
     public function before_process()
     {
+        $content = '';
+
         try {
             $preApp = new PreAppHandler();
-            $this->redirect($preApp->preApp());
+
+            $preAppLink = $preApp->preApp();
+
+            if (Config::get('factoring004_client_route') === 'modal') {
+                $domain = stripos(Config::get('factoring004_api_host'), 'dev') ? 'dev.bnpl.kz' : 'bnpl.kz';
+                $content .= "<button id='factoring004-open-modal' class='btn btn-default' type='button'>{lang}Process to Payment{/lang}</button>
+                    <script defer src='https://$domain/widget/index_bundle.js'></script>
+                    <div id='modal-factoring004'></div>
+                    <script>
+                        jQuery(function($) {
+                            $(document).on('click', '#factoring004-open-modal', function () {
+                                const bnplKzApi = new BnplKzApi.CPO({
+                                      rootId: 'modal-factoring004',
+                                      callbacks: {
+                                        onError: () => window.location.replace('$preAppLink'),
+                                        onDeclined: () => window.location.replace('/'),
+                                        onEnd: () => window.location.replace('/'),
+                                        onClosed: () => window.location.reload()
+                                      }
+                                    });
+                                    bnplKzApi.render({
+                                        redirectLink: '$preAppLink'
+                                    });
+                            })
+                        })
+                    </script>
+                ";
+            } else {
+                $content .= '<a class="btn btn-default" href="'.$preAppLink.'">{lang}Process to Payment{/lang}</a>';
+            }
+
+            return $content;
+
         } catch (Exception $e) {
             $this->redirect(Router::url('error'));
         }
