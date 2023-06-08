@@ -27,11 +27,6 @@ class PreAppHandler
         return $this->createApi()->preApps->preApp($this->preAppMessage())->getRedirectLink();
     }
 
-    protected function getOAuthToken()
-    {
-        return Config::get('factoring004_token_bp');
-    }
-
     private function preAppMessage()
     {
         global $order;
