@@ -19,4 +19,6 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'BnplPartners\\Factoring004\\' => array($vendorDir . '/bnpl-partners/factoring004/src'),
     'BnplPartners\\Factoring004VamShop\\' => array($baseDir . '/app/Vendor/BnplPartnersFactoring004VamShop/src'),
+    'AdinanCenci\\FileCache\\Exceptions\\' => array($vendorDir . '/adinan-cenci/file-cache/src/Exceptions'),
+    'AdinanCenci\\FileCache\\' => array($vendorDir . '/adinan-cenci/file-cache/src'),
 );
