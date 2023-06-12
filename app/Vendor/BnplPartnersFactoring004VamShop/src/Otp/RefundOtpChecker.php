@@ -17,12 +17,4 @@ class RefundOtpChecker implements OtpCheckerInterface
     {
         $this->createApi()->otp->checkOtpReturn(new CheckOtpReturn($amount, $this->getMerchantId(), $orderId, $otp));
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getOAuthToken()
-    {
-        return Config::get('factoring004_token_as');
-    }
 }

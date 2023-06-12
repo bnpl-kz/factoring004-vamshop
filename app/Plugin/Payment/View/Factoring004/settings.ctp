@@ -40,15 +40,15 @@ echo $this->Form->input('factoring004.factoring004_api_host', array(
     'value' => $data['PaymentMethodValue'][0]['value']
 ));
 
-echo $this->Form->input('factoring004.factoring004_token_bp', array(
-    'label' => __d('factoring004','OAuth Token bnpl-partners'),
-    'type' => 'textarea',
+echo $this->Form->input('factoring004.factoring004_login', array(
+    'label' => __d('factoring004','Login'),
+    'type' => 'text',
     'value' => $data['PaymentMethodValue'][1]['value']
 ));
 
-echo $this->Form->input('factoring004.factoring004_token_as', array(
-    'label' => __d('factoring004','OAuth Token AccountingService'),
-    'type' => 'textarea',
+echo $this->Form->input('factoring004.factoring004_password', array(
+    'label' => __d('factoring004','Password'),
+    'type' => 'text',
     'value' => $data['PaymentMethodValue'][2]['value']
 ));
 
@@ -130,6 +130,13 @@ echo $this->Form->input('factoring004.factoring004_cancel_status', array(
     'type' => 'select',
     'value' => $data['PaymentMethodValue'][12]['value'],
     'options' => array_merge(['-'],$statuses)
+));
+
+echo $this->Form->input('factoring004.factoring004_client_route', array(
+    'label' => __d('factoring004','Client route'),
+    'type' => 'select',
+    'value' => $data['PaymentMethodValue'][14]['value'],
+    'options' => ['redirect' => __d('factoring004','Redirect'), 'modal' => __d('factoring004','Modal')],
 ));
 
 echo '<script>

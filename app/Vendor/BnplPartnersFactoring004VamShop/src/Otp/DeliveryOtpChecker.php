@@ -17,12 +17,4 @@ class DeliveryOtpChecker implements OtpCheckerInterface
     {
         $this->createApi()->otp->checkOtp(new CheckOtp($this->getMerchantId(), $orderId, $otp, $amount));
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getOAuthToken()
-    {
-        return Config::get('factoring004_token_as');
-    }
 }

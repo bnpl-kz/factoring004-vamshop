@@ -55,12 +55,4 @@ class CancelHandler implements OrderStatusHandlerInterface
 
         return false;
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getOAuthToken()
-    {
-        return Config::get('factoring004_token_as');
-    }
 }

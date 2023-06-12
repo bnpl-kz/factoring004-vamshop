@@ -35,11 +35,11 @@ msgstr "Рассрочка 0-0-4"
 msgid "API Host"
 msgstr "API Host"
 
-msgid "OAuth Token bnpl-partners"
-msgstr "OAuth Token bnpl-partners"
+msgid "Login"
+msgstr "Login"
 
-msgid "OAuth Token AccountingService"
-msgstr "OAuth Token AccountingService"
+msgid "Password"
+msgstr "Password"
 
 msgid "Partner Name"
 msgstr "Partner Name"
@@ -85,5 +85,14 @@ msgstr "Файл оферты"
 
 msgid "Help offer"
 msgstr "Загрузите файл оферты, если вам необходимо его отобразить клиенту"
+
+msgid "Client route"
+msgstr "Вид интерфейса клиентского пути"
+
+msgid "Redirect"
+msgstr "Редирект"
+
+msgid "Modal"
+msgstr "Модальное окно"
 
 
