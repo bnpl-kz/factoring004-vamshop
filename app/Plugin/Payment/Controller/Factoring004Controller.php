@@ -31,7 +31,7 @@ class Factoring004Controller extends PaymentAppController
     /**
      * @var string[]
      */
-    public $uses = ['PaymentMethod','OrderStatusDescription'];
+    public $uses = ['PaymentMethod', 'Order', 'OrderStatusDescription'];
 
     /**
      * @var string
